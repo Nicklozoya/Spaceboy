@@ -39,13 +39,12 @@ export default function Space() {
             body: JSON.stringify({
             model:'gpt-3.5-turbo-instruct',
             prompt: prompt,
-            max_tokens: 150,
+            max_tokens: 500,
             })
           }
         );
         const data = await response.json()
         const answer = data.choices[0].text.trim();
-        console.log(data.choices)
         setAnswer(answer);
         speak(answer);
       } catch (error) {
@@ -76,7 +75,7 @@ export default function Space() {
             <Rotatingneptune />
             <Stars />
             <Html position={[0, 5, 0]}>
-              <div className="chat-interface">
+              <section className="chat">
                 <form onSubmit={handleSubmit}>
                   <input
                     type="text"
@@ -85,7 +84,7 @@ export default function Space() {
                     placeholder="Ask a question about space..."
                   />
                 </form>
-              </div>
+              </section>
             </Html>
             <Html position={[0, -5, 0]}>
              <Donate />

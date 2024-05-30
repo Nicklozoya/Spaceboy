@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Planetmodal from './Planetmodal'
+import { Link } from 'react-router-dom'
 
 export default function Planetlist() {
     const [openModal, setOpenModal] =useState(false)
