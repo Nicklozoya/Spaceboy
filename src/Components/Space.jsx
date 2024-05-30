@@ -58,7 +58,6 @@ export default function Space() {
     };
     return (
       <>
-       <Spacestate>
       <div className='space'>
         <Canvas>
           <ambientLight intensity={0.2} />
@@ -92,12 +91,14 @@ export default function Space() {
              <Donate />
             </Html>
             <Html position={[0, 0, 0]}>
+            <Spacestate>
             <Planetlist />
+            </Spacestate>
             </Html>
           </Suspense>
         </Canvas>
         </div>
-        </Spacestate>
+       
       </>
     );
 }

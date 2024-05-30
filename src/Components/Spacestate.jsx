@@ -1,7 +1,9 @@
 import React, { createContext, useState } from 'react';
-const SpaceContext = createContext();
+
+export const SpaceContext = createContext();
+
 export const Spacestate = ({ children }) => {
-  const [selectedPlanet, setSelectedPlanet] = useState(0);
+  const [selectedPlanet, setSelectedPlanet] = useState('');
   return (
     <SpaceContext.Provider value={{ selectedPlanet, setSelectedPlanet }}>
       {children}
