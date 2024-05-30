@@ -14,6 +14,7 @@ import Rotatingneptune from '../../public/Rotatingneptune';
 import '../fonts/SpaceGome-1jPKg.ttf'
 import Donate from '../Components/Donate';
 import Planetlist from '../Components/Planetlist';
+import { Spacestate } from './Spacestate';
 
 
 export default function Space() {
@@ -57,6 +58,7 @@ export default function Space() {
     };
     return (
       <>
+       <Spacestate>
       <div className='space'>
         <Canvas>
           <ambientLight intensity={0.2} />
@@ -95,6 +97,7 @@ export default function Space() {
           </Suspense>
         </Canvas>
         </div>
+        </Spacestate>
       </>
     );
 }
