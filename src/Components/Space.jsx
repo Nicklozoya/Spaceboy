@@ -12,9 +12,9 @@ import Rotatingsaturn from '../../public/Rotatingsaturn';
 import Rotatinguranus from '../../public/Rotatinguranus';
 import Rotatingneptune from '../../public/Rotatingneptune';
 import '../fonts/SpaceGome-1jPKg.ttf'
-import Donate from '../Components/Donate';
 import Planetlist from '../Components/Planetlist';
 import { Spacestate } from './Spacestate';
+import Ufo from '../../public/Ufo'
 
 
 export default function Space() {
@@ -74,6 +74,7 @@ export default function Space() {
             <Rotatingsaturn />
             <Rotatinguranus />
             <Rotatingneptune />
+            <Ufo />
             <Stars />
             <Html position={[0, 5, 0]}>
               <section className="chat">
@@ -86,9 +87,6 @@ export default function Space() {
                   />
                 </form>
               </section>
-            </Html>
-            <Html position={[0, -5, 0]}>
-             <Donate />
             </Html>
             <Html position={[0, 0, 0]}>
             <Spacestate>

@@ -10,15 +10,13 @@ function Planetmodal() {
   const handleShow = () => setShow(true);
   const [planets,Setplanets] = useState('')
 
-   // GET request using fetch with error handling
+
    fetch(`https://api.le-systeme-solaire.net/rest/bodies/${selectedPlanet}`)
    .then(async response => {
        const data = await response.json()
   
 
-       // check for error response
        if (!response.ok) {
-           // get error message from body or default to response statusText
            const error = (data && data.message) || response.statusText;
            return Promise.reject(error);
        }
