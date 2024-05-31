@@ -10,30 +10,50 @@ function Planetmodal() {
   const handleShow = () => setShow(true);
   const [planets,Setplanets] = useState('')
 
-  useEffect(()=>{
-    fetch(`https://api.le-systeme-solaire.net/rest/bodies/${selectedPlanet}`)
-    .then((res) => {
-        return res.json()
-    })
-    .then((data)=> {
-        Setplanets(data.semimajorAxis)
+   // GET request using fetch with error handling
+   fetch(`https://api.le-systeme-solaire.net/rest/bodies/${selectedPlanet}`)
+   .then(async response => {
+       const data = await response.json()
+  
 
-    })
-  },[])
+       // check for error response
+       if (!response.ok) {
+           // get error message from body or default to response statusText
+           const error = (data && data.message) || response.statusText;
+           return Promise.reject(error);
+       }
+
+       Setplanets(data)
+   })
+   .catch(error => {
+       this.setState({ errorMessage: error.toString() });
+       console.error('There was an error!', error);
+   });
 
 
   return (
     <>
-      <p variant="primary" onClick={handleShow}>
-        {planets}
+      <p style={{
+        color:"blue",
+        fontSize:"15px",
+      }} variant="primary" onClick={handleShow}>
+        Click Here for Planet info
       </p>
      
       <section id='modal'>
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>{selectedPlanet}</Modal.Title>
+          <Modal.Title>{planets.name}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{planets}</Modal.Body>
+        <Modal.Body>
+          {`Gravity: ${planets.gravity} m/s2`}<br/>
+          {`Density ${planets.density}g/cm3`}<br />
+          {`Average temp: ${planets.avgTemp}K`}<br />
+          {`Escape Velocity: ${planets.escape} km/s`}
+          
+
+
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react';
 export const SpaceContext = createContext();
 
 export const Spacestate = ({ children }) => {
-  const [selectedPlanet, setSelectedPlanet] = useState('');
+  const [selectedPlanet, setSelectedPlanet] = useState('Earth');
   return (
     <SpaceContext.Provider value={{ selectedPlanet, setSelectedPlanet }}>
       {children}

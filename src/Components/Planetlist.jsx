@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import Planetmodal from './Planetmodal';
 import   { SpaceContext }  from './Spacestate';
-import {Outlet, Link} from "react-router-dom";
+
+
 
 
 const PlanetList = () => {
@@ -12,7 +13,7 @@ const PlanetList = () => {
   return (
     <>
     <div className="Planet-list">
-      <p onClick={() => handlePlanetClick('Mercury')}>Mercuy</p>
+       <p onClick={() => handlePlanetClick('Mercury')}>Mercury</p>
       <p onClick={() => handlePlanetClick('Venus')}>Venus</p>
       <p onClick={() => handlePlanetClick('Earth')}>Earth</p>
       <p onClick={() => handlePlanetClick('Mars')}>Mars</p>
@@ -20,8 +21,8 @@ const PlanetList = () => {
       <p onClick={() => handlePlanetClick('Saturn')}>Saturn</p>
       <p onClick={() => handlePlanetClick('Uranus')}>Uranus</p>
       <p onClick={() => handlePlanetClick('Neptune')}>Neptune</p>
+      <Planetmodal />
     </div>
-    {/* <Outlet /> */}
     </>
   );
 };
