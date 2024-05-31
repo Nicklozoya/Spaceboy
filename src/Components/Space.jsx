@@ -40,7 +40,7 @@ export default function Space() {
             body: JSON.stringify({
             model:'gpt-3.5-turbo-instruct',
             prompt: prompt,
-            max_tokens: 10000,
+            max_tokens: 150,
             })
           }
         );
